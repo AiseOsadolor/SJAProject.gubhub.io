@@ -3,12 +3,13 @@
    ======================= */
 
 :root {
-    --primary-green: #006837;
-    --secondary-yellow: #ffd600;
-    --white: #ffffff;
+    --primary-green: #004d00;
+    --secondary-yellow: #ffcc00;
+    --white: rgb(255, 255, 255, 0.95);
     --light-grey: #f4f4f4;
     --dark-grey: #222;
-    --footer-gradient: linear-gradient(150deg, #006837 0%, #cac6c6df 50%, #ffd600 100%);
+    --footer-gradient: linear-gradient(120deg, #004d00 0%, #ffcc00 100%);
+    --hover-color: white;
 }
 
 * {
@@ -26,9 +27,12 @@ body {
 
 /* Header */
 header {
-    width: 100%;
+    width: 1200px;
+    height: 650px;
+    max-width: 100%;
+    margin: 0 auto;
     background-color: var(--primary-green);
-    padding: 20px 0 0 0;
+    padding: 10px 0;
     color: var(--white);
     position: relative;
 }
@@ -40,20 +44,7 @@ header h1 {
     letter-spacing: 2px;
 }
 
-header img {
-    width: 100%;
-    height: 20%;
-    opacity: 0.95;
-    border: none;
-    margin: 0;
-    padding: 0;
-    transition: transform 0.2s, filter 0.2s;
-}
 
-header img:hover {
-    transform: scale(1.05);
-    filter: grayscale(0.2);
-}
 
 /* Navigation */
 nav {
@@ -124,7 +115,7 @@ a:hover {
 /* Footer */
 footer {
     background: var(--footer-gradient);
-    color: var(--primary-green);
+    color: var(--dark-grey);
     width: 100%;
     font-size: 1em;
     position: relative;
@@ -141,19 +132,18 @@ footer section {
     margin-bottom: 16px;
 }
 
-.quick-links, .footer-socials, .quick-contact, .brief-history {
-    width: 220px;
+.quick-links, .footer-socials, .quick-contact {
+    width: 31%;
     min-width: 180px;
-    background: rgba(255,255,255,0.85);
     border-radius: 8px;
     margin: 8px 0;
     padding: 12px 10px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,104,55,0.05);
+    
 }
 
-.quick-links h3, .footer-socials h3, .quick-contact h3, .brief-history h3 {
-    color: var(--primary-green);
+.quick-links h3, .footer-socials h3, .quick-contact h3 {
+    color: rgb(0, 0, 0, 0.9);
     font-size: 1.1em;
     margin-bottom: 8px;
 }
@@ -161,8 +151,7 @@ footer section {
 footer p {
     width: 100%;
     text-align: center;
-    color: var(--primary-green);
-    margin: 8px 0 0 0;
+    color: #4d0039;
 }
 
 .quick-links ul, .footer-socials ul {
@@ -177,15 +166,17 @@ footer p {
     padding: 5px 5px;
 }
 
-.quick-links ul li a, .footer-socials ul li a {
-    color: var(--primary-green);
+.quick-contact a, .quick-links ul li a, .footer-socials ul li a {
+    color: #4d0039;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.2s;
 }
 
-.quick-links ul li a:hover, .footer-socials ul li a:hover {
-    color: #222;
+.quick-contact a:hover, .quick-links ul li a:hover, .footer-socials ul li a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+    font font-size: ;
 }
 
 .footer-socials i {
@@ -194,41 +185,44 @@ footer p {
     vertical-align: middle;
 }
 
+.footer-socials i:hover {
+    transform: scale(1.4);
+    opacity: 0.5;
+}
+
 /* Image Slideshow */
 .image-slideshow {
     position: relative;
-    width: 100%;
-    max-width: 600px;
-    height: 300px;
-    margin: 0 auto 16px auto;
+    width: 96%;
+    max-width: 1200px;
+    height: 600px;
+    max-height: 1200px;
+    margin: 0 10px;
     overflow: hidden;
-    display: flex;
+    display: block;
     justify-content: center;
-    border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(0,104,55,0.07);
-    background: var(--white);
 }
-
 .image-slideshow img {
     position: absolute;
-    width: 99%;
+    width: 93%;
     height: auto;
     opacity: 0;
     transition: opacity 2s ease-in-out;
-    object-fit: contain;
+    object-fit: cover;
+    border: 1px transparent transparent;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 10px;
-}
+    
+   
 
+}
 .image-slideshow img.active {
     opacity: 1;
     z-index: 1;
 }
-
 .image-slideshow img.active:hover {
-    filter: grayscale(0.2) brightness(1.1);
+    filter: grayscale(1);
 }
 
 /* Contact Info & Form */
@@ -465,8 +459,7 @@ body.dark-mode .contact-form button:hover {
 
 body.dark-mode .quick-links,
 body.dark-mode .footer-socials,
-body.dark-mode .quick-contact,
-body.dark-mode .brief-history {
+body.dark-mode .quick-contact {
     background: rgba(24,24,24,0.95) !important;
     color: #ffd600 !important;
     box-shadow: 0 2px 8px rgba(0,184,107,0.08);
@@ -534,7 +527,7 @@ body.dark-mode #darkModeToggle:hover {
         align-items: stretch;
         gap: 16px;
     }
-    .quick-links, .footer-socials, .quick-contact, .brief-history {
+    .quick-links, .footer-socials, .quick-contact {
         width: 98%;
         min-width: unset;
         margin: 0 auto 12px auto;
